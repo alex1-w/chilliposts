@@ -1,0 +1,74 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // border: 1px solid red;
+    width: 100%;
+    padding: 0 50px;
+}
+
+.dateInputBlock {
+    position: relative;
+    /* display: flex; */
+}
+
+.dateBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #667A98;
+    padding: 12px 25px;
+    border-radius: 5px;
+}
+
+.calendar {
+    position: absolute;
+    top: 120%;
+    right: -80%;
+}
+
+/* 
+.dateBlock {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #667A98;
+    width: 45%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    justify-content: space-between;
+    padding: 20px 14px;
+
+    // padding: 20px;
+    & p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .dateBlock {
+        padding: 10px 8px;
+
+    }
+}
+
+.inputDate {
+    padding: 5px 7px;
+    background-color: #667A98;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input {
+        color: white;
+        font-size: 18px;
+        
+        svg {
+            
+            color: white;
+        }
+    }
+} */

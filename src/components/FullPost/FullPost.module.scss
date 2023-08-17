@@ -1,0 +1,99 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+    width: fit-content;
+
+    // gap: 20px;
+    &__tagsBlock {
+        margin-top: 20px;
+        display: flex;
+        padding: 3px 0;
+        gap: 7px;
+    }
+
+    &__title {
+        width: 50%;
+        // border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__author {
+        color: #F2F2F2;
+        font-size: 10px;
+    }
+
+    &__clock {
+        color: #F2F2F2;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+}
+
+.imgBlock {
+    border-radius: 6px;
+    width: 328px;
+    height: 222px;
+    position: relative;
+    overflow: hidden;
+
+    & image {
+        object-fit: cover;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 1070px) {
+    .main {
+        &__tagsBlock {}
+
+        &__title {
+            width: 40%;
+        }
+    }
+}
+
+@media screen and (max-width: 880px) {
+
+    .imgBlock {
+        width: 228px;
+        height: 172px;
+    }
+}
+
+.cancelIcon {
+    position: absolute;
+    z-index: 12;
+    top: 1%;
+    right: 1%;
+    transition: scale 0.2s;
+
+    &:hover {
+        scale: 1.2;
+        transition: scale 0.2s;
+    }
+}

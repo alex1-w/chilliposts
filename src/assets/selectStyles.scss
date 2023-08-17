@@ -1,0 +1,35 @@
+.custom-select {
+    background-color: #667A98 !important;
+    // width: 100% !important;
+
+    &__placeholder {
+        color: white !important;
+    }
+
+    &__control {
+        // width: 100% !important;
+        border-radius: 5px !important;
+        box-shadow: none !important;
+        background-color: #667A98 !important;
+        border: none !important;
+
+        &__menu_value {
+            background-color: red !important;
+        }
+    }
+
+    &__value-container {
+        // width: 100%;
+    }
+
+    &__input-container {
+        // width: 100% !important;
+        border: 1px solid red !important;
+    }
+
+    &_container {
+        width: 100% !important;
+    }
+}
+
+// class="custom-select__multi-value css-1p3m7a8-multiValue"

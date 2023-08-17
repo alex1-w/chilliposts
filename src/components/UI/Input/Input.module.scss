@@ -1,0 +1,33 @@
+.main {
+    // width: 100%;
+    // max-width: 726px;
+    width: 80vw;
+    max-width: 726px;
+    min-width: 200px;
+    background-color: #33363D;
+    height: 40px;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // border: 1px solid red;
+
+    & input {
+        // background-color: inherit;
+        // width: 95%;
+        width: 100%;
+
+        &:focus {
+            background-color: #33363D;
+        }
+    }
+
+    &__eyeblock {   
+        cursor: pointer;
+        top: 0;
+        right: 0;
+        z-index: 11;
+    }
+}

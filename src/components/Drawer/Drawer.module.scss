@@ -1,0 +1,49 @@
+.wrapper {}
+
+.main {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 4;
+    top: 0;
+    left: 0;
+
+    &.blackout {
+        transition: 1s border;
+        border: 1px solid red;
+        background-color: rgba(0, 0, 0, 0.192);
+    }
+
+    @media screen and (max-width:500px) {
+        width: 85%;
+        gap: 20px;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    // border: 1px solid red;
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+    background-color: #33363D;
+    max-width: 700px;
+    width: 70%;
+    height: 100%;
+}
+
+.cancelBtn {
+    position: absolute;
+    top: 1.4%;
+    right: 1.4%;
+    z-index: 10;
+    transition: scale 0.23s;
+    cursor: pointer;
+
+    &:hover {
+        transition: scale 0.23s;
+        scale: 1.2;
+    }
+}

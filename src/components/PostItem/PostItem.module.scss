@@ -1,0 +1,125 @@
+.main {
+    width: 328px;
+    height: 400px;
+    // border: 1px solid red;
+    border-radius: 7px;
+    background-color: rgba(242, 242, 255, 0.04);
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.20);
+
+    &:hover {
+        & .imgBlock {
+            &__image {
+                height: 90%;
+                width: 90%;
+            }
+        }
+    }
+
+}
+
+.imgBlock {
+    position: relative;
+    border-radius: 7px;
+    overflow: hidden;
+    width: 100%;
+    height: 55%;
+
+    &__image {
+        object-fit: cover;
+        transition: transform 0.3s;
+    }
+
+    &:hover {
+
+        & img {
+            transition: transform 0.3s;
+            transform: scale(1.2);
+        }
+    }
+}
+
+.cardContent {
+    cursor: default;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+
+    &__head {
+        display: flex;
+        gap: 7px;
+        padding: 7px 14px;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__mainContent {
+        // border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding: 10px 14px;
+    }
+
+    &__text {
+        max-height: 55px;
+        width: 100%;
+
+        & p {
+            font-size: 12px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+.date {
+    & p {
+        color: #F2F2FF;
+        font-size: 10px;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .main {
+        position: relative;
+        height: 300px;
+    }
+
+    .cardContent {
+
+        &__head {
+            position: absolute;
+            top: 0;
+            left: 0;
+            // border: 1px solid red;
+
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .main {
+        width: 270px;
+        position: relative;
+        height: 300px;
+    }
+
+    .cardContent {
+
+        &__head {
+            position: absolute;
+            top: 0;
+            left: 0;
+            // border: 1px solid red;
+
+        }
+    }
+}
