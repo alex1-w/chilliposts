@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './global.scss';
 import App from './App';
 
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, HashRouter } from 'react-router-dom'
 import { DrawerProvider } from './components/Drawer/DrawerProvider';
 import { FilterProvider } from './components/FilterMenu/FilterProvider';
 import { SnackbarProvider } from 'notistack';
@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <BrowserRouter>
+  <HashRouter>
 
     <SnackbarProvider>
       <FilterProvider>
@@ -23,6 +23,6 @@ root.render(
       </FilterProvider>
     </SnackbarProvider>
 
-  </BrowserRouter>
+  </HashRouter>
 );
 
