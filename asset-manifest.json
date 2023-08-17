@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/chilliposts/static/css/main.648fc4c3.css",
+    "main.js": "/chilliposts/static/js/main.57a691f1.js",
+    "static/media/postImage.png": "/chilliposts/static/media/postImage.fbd8585eb64b6858742c.png",
+    "index.html": "/chilliposts/index.html",
+    "main.648fc4c3.css.map": "/chilliposts/static/css/main.648fc4c3.css.map",
+    "main.57a691f1.js.map": "/chilliposts/static/js/main.57a691f1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.648fc4c3.css",
+    "static/js/main.57a691f1.js"
+  ]
+}
