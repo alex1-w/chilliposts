@@ -20,7 +20,7 @@ export const FilterMenu = () => {
             <div className={styles.filterBlock}>
 
                 <FilterSelect />
-                <FilterDate />
+                {/* <FilterDate /> */}
                 <Button name='ПРИМЕНИТЬ' type='submit' variant='btnApplyFilter' />
 
             </div>

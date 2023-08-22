@@ -5,7 +5,6 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import dayjs from 'dayjs'
 const localizedFormat = require('dayjs/plugin/localizedFormat')
-
 dayjs.extend(localizedFormat)
 require('dayjs/locale/ru')
 dayjs.locale('ru')
@@ -25,81 +24,52 @@ interface ICalendars {
     calendarOne: boolean,
     calendarTwo: boolean,
 }
+// const day = dayjs(String(dateFrom)).format('DD-MM-YYYY')
 // const minDate = new Date("2017-01-26")
+// const [dateFrom, setDateFrom] = useState<Value>(new Date())
 
 export const FilterDate = () => {
-    // const [dateFrom, setDateFrom] = useState<Value>(new Date())
+    const [dates, setDates] = useState<any>(new Date())
+    const [isCalendarShowed, setIsCalendarShowed] = useState<boolean>(false)
 
-    const [dateFrom, setDateFrom] = useState<any>(new Date())
-    const [dateBefore, setDateBefore] = useState<any>(new Date())
 
-    const [isCalendarShowed, setIsCalendarShowed] = useState<ICalendars>({
-        calendarOne: false,
-        calendarTwo: false,
-    })
-
-    // const day = dayjs(String(dateFrom)).format('DD-MM-YYYY')
-
-    const formateDate = (date: string | undefined) => dayjs(String(date)).format('DD-MM-YYYY')
+    const formateDate = (date: string) => dayjs(String(date)).format('DD-MM-YYYY')
+    console.log(dates);
+    // const formatedDates = dates.map((date: any) => (
+    //     console.log(Object.values(date))
+    //     // formateDate(date)
+    // ))
+    console.log(typeof ((Object.values(dates)[0])));
 
     return (
         <form className={styles.main}>
 
             <div className={styles.dateInputBlock}>
 
-                <div
-                    className={styles.dateBlock}
-                    onClick={() => setIsCalendarShowed({ ...isCalendarShowed, calendarOne: true })}
-                >
-                    <p>{formateDate(dateFrom?.toString())}</p>
+                <div className={styles.dateItem} onClick={() => setIsCalendarShowed(true)}>
+
+                    <p>{formateDate(dates?.toString())}</p>
                     {calendarIcon}
 
                 </div>
 
-                {isCalendarShowed.calendarOne &&
+                {isCalendarShowed &&
                     <div className={styles.calendar}>
                         <Calendar
-                            maxDate={new Date(2023, 11, 31)}
-                            minDate={new Date(2017, 0, 1)}
-                            // onChange={e => setDateFrom({ ...dateFrom, dateBefore: e })}
-                            // value={dateFrom.dateBefore}
-                            onChange={setDateFrom}
-                            value={dateBefore}
-                            onClickDay={() => setIsCalendarShowed({ ...isCalendarShowed, calendarOne: false })}
+                            value={dates}
+                            onChange={setDates}
+                            selectRange={true}
+                            showDoubleView
+                            formatDay={(locale, date) => dayjs(date).format('DD')}
+                        // formatLongDate={(locale, date) => formateDate(date, 'YYYY-MMM-dd')}
+                        // maxDate={new Date(2023, 11, 31)}
+                        // minDate={new Date(2017, 0, 1)}
+                        // onChange={e => setDateFrom({ ...dateFrom, dateBefore: e })}
+                        // value={new Date()}
                         />
                     </div>
                 }
             </div>
-
-
-            <div className={styles.line}></div>
-
-
-            <div
-                className={styles.dateInputBlock}
-                onClick={() => setIsCalendarShowed({ ...isCalendarShowed, calendarTwo: true })}
-            >
-
-                <div className={styles.dateBlock}>
-                    <p>{formateDate(dateFrom?.toString())}</p>
-                    {calendarIcon}
-                </div>
-
-                {isCalendarShowed.calendarTwo &&
-                    <div className={styles.calendar}>
-                        <Calendar
-                            minDate={new Date(2017, 0, 1)}
-                            maxDate={new Date(2023, 11, 31)}
-                            // onChange={e => setDateFrom({ ...dateFrom, dateFrom: e })}
-                            // value={dateFrom.dateFrom}
-                            onChange={setDateBefore}
-                            value={dateBefore}
-                            // onClickDay={() => setIsCalendarShowed({ ...isCalendarShowed, calendarTwo: false })}
-                        />
-                    </div>
-                }
-            </div>
-
         </form>
     )
 }

@@ -19,10 +19,7 @@ export const PostItem: FC<{ post: IPost }> = ({ post }) => {
                 className={styles.main}
             >
                 <div className={styles.imgBlock}>
-                    <div>
                         <img alt={post.title} src={post.image} className={styles.imgBlock__image} />
-                    </div>
-
                 </div>
 
                 <div className={styles.cardContent}>

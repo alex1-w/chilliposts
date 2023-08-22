@@ -14,8 +14,8 @@ export const Drawer = () => {
             {isDrawerOpened &&
                 <motion.article
                     className={cn(styles.main)}
-                    initial={{ x: '-100' }}
-                    animate={{ x: 0 }}
+                    initial={{ x: '-100', width: 0 }}
+                    animate={{ x: 0, width: '70%' }}
                     exit={{ x: '-100%' }}
                 >
                     <div className={styles.content}>

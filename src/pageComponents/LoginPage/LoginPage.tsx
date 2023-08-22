@@ -7,10 +7,12 @@ import { IFormState } from '../../types/IFormState'
 import { Container } from '../../components/Container/Container'
 import { Button } from '../../components/UI/Button/Button'
 import { Input } from '../../components/UI/Input/Input'
+import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 
 export const LoginPage = () => {
-    // const router = useRouter()
+    const navigate = useNavigate()
     const [passwordVisible, setPasswordVisible] = useState<'text' | 'password'>('password')
 
     const { register, handleSubmit, reset, formState: { errors, isDirty, dirtyFields, isValid, submitCount } } = useForm<IFormState>({
@@ -21,8 +23,6 @@ export const LoginPage = () => {
             password: ''
         }
     })
-    console.log(43);
-    
 
     const onSubmit: SubmitHandler<IFormState> = async (formData: IFormState) => {
 
@@ -39,6 +39,7 @@ export const LoginPage = () => {
         // return enqueueSnackbar('Пользователь с такими данными не найден', { variant: 'error' })
         // }
         // cookies.set('userToken', `${formData.login}, ${formData.password}`)
+        navigate('/posts')
         reset()
     }
 
@@ -58,20 +59,17 @@ export const LoginPage = () => {
                         placeholder="Email"
                         name="login"
                     />
-
-                    {errors.login && <p>{errors.login.message}</p>}
-
                     <Input
                         passwordVisible={passwordVisible}
                         setPasswordVisible={setPasswordVisible}
-                        errors={errors} register={register}
+                        errors={errors}
+                        register={register}
                         type='password'
                         inputType='password'
                         placeholder="Password"
                         name="password"
                     />
-                    {errors.password && <p>{errors.password.message}</p>}
-                    
+
                     <Button
                         name="Войти"
                         type="submit"

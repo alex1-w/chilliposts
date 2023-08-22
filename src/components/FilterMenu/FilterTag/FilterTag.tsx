@@ -11,21 +11,31 @@ interface IFilterTag {
 }
 
 export const FilterTag: FC<IFilterTag> = ({ value, deleteTag, id }) => {
-    
+
+    const changeOnClick = (e: React.MouseEvent<HTMLElement>, id: number) => {
+        e.stopPropagation()
+        deleteTag(id)
+    }
+
     return (
-        <AnimatePresence>
-            <motion.li
-                initial={{ width: 0, opacity: 0 }}
-                animate={{ width: 'fit-content', opacity: 1 }}
-                exit={{ width: 0, opacity: 0 }}
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className={styles.main}
-            >
-                <div className={styles.liBlock}>
-                    <p>{value}</p>
-                    <div onClick={() => deleteTag(id)}>{trash}</div>
+
+        <motion.li
+            onClick={(e) => { e.stopPropagation()}}
+            initial={{ width: 0, opacity: 0 }}
+            animate={{ width: 'fit-content', opacity: 1 }}
+            exit={{ width: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+            className={styles.main}
+        >
+            <div className={styles.liBlock}>
+
+                <p>{value}</p>
+                <div onClick={(e) => changeOnClick(e, id)}>
+                    {trash}
                 </div>
-            </motion.li>
-        </AnimatePresence>
+
+            </div>
+        </motion.li>
+
     )
 }

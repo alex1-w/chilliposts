@@ -9,10 +9,10 @@
 
 .dateInputBlock {
     position: relative;
-    /* display: flex; */
 }
 
-.dateBlock {
+.dateItem {
+    border: 1px solid red;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,7 +25,9 @@
 .calendar {
     position: absolute;
     top: 120%;
-    right: -80%;
+    left: -50%;
+    z-index: 100;
+    max-width: 550px;
 }
 
 .line {

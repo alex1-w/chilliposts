@@ -4,25 +4,25 @@ import './global.scss';
 import App from './App';
 
 import { BrowserRouter, HashRouter } from 'react-router-dom'
-import { DrawerProvider } from './components/Drawer/DrawerProvider';
-import { FilterProvider } from './components/FilterMenu/FilterProvider';
-import { SnackbarProvider } from 'notistack';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+
+// guirggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
+
+// hashrouter
+
+// guirggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
+
 root.render(
-  <HashRouter>
+  <React.StrictMode>
 
-    <SnackbarProvider>
-      <FilterProvider>
-        <DrawerProvider>
-          <App />
-        </DrawerProvider>
-      </FilterProvider>
-    </SnackbarProvider>
+    {/* <BrowserRouter> */}
+      <App />
+    {/* </BrowserRouter> */}
 
-  </HashRouter>
+  </React.StrictMode>
 );
 

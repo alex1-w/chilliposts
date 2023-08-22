@@ -1,6 +1,6 @@
 import styles from './FilterSelect.module.scss'
 // import { MultiSelect } from "react-multi-select-component";
-import { FC, useRef, useState } from 'react'
+import { ChangeEvent, FC, MouseEvent, useRef, useState } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 import { FilterTag } from '../FilterTag/FilterTag';
 import { useFilterProvider } from '../FilterProvider';
@@ -22,13 +22,17 @@ export const FilterSelect = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const showSelect = () => setIsOpen(!isOpen)
 
-    function addCategoryTag(option: ITag) {
+    function addCategoryTag(e: React.MouseEvent<HTMLElement>, option: ITag) {
+        // e.preventDefault()
+        e.stopPropagation()
         const tagInValue = categories.find((tag: ITag) => tag.id === option.id)
         if (tagInValue) return enqueueSnackbar('категория уже добавлена', { variant: 'error' })
         addCategories(option)
     }
 
-    function deleteTag(id: number) { deleteCategory(id) }
+    function deleteTag(id: number) {
+        deleteCategory(id)
+    }
 
     return (
 
@@ -39,7 +43,12 @@ export const FilterSelect = () => {
                     <ul className={styles.tagsBlock}>
 
                         {categories.map((tag: ITag) => (
-                            <FilterTag key={tag.id} id={tag.id} value={tag.value} deleteTag={() => deleteTag(tag.id)} />
+                            <FilterTag
+                                key={tag.id}
+                                id={tag.id}
+                                value={tag.value}
+                                deleteTag={(e) => deleteTag(tag.id)}
+                            />
                         ))}
 
                     </ul>
@@ -60,7 +69,7 @@ export const FilterSelect = () => {
                 >
 
                     {options.map(option => (
-                        <li key={option.id} onClick={() => addCategoryTag(option)}>
+                        <li key={option.id} onClick={(e) => addCategoryTag(e, option)}>
                             <p>{option.value}</p>
                         </li>
                     ))}

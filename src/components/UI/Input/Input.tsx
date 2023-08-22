@@ -21,29 +21,61 @@ export const Input: FC<IInputProps & DetailedHTMLProps<InputHTMLAttributes<HTMLI
         const validatePattern = inputType === 'login' ? /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/ : ''
 
         return (
-            <AnimatePresence>
-                <motion.div className={styles.main}>
-                    <input
-                        type={passwordVisible && inputType === 'password' ? 'password' : 'text'} 
-                        placeholder={placeholder}
+            // <AnimatePresence>
+            //     <motion.div
+            //         initial={{ height: 40 }}
+            //         animate={{ height: 'fit-content' }}
+            //         className={styles.main}>
+            //         <input
+            //             type={passwordVisible && inputType === 'password' ? 'password' : 'text'}
+            //             placeholder={placeholder}
 
+            //             {...register(name, {
+            //                 required: `${name} is required !!!`,
+            //                 pattern: {
+            //                     value: validatePattern,
+            //                     message: `введите корректный ${name}`
+            //                 }
+            //             })}
+            //         />
+
+            //         {inputType === 'password' &&
+            //             <div className={styles.main__eyeblock}>
+            //                 {!passwordVisible && <img src={eyeIcon} alt="eye" onClick={() => setPasswordVisible('text')} />}
+            //                 {passwordVisible && <img src={eyeIconSlach} alt="eyeSlash" onClick={() => setPasswordVisible('password')} />}
+            //             </div>
+            //         }
+            //     </motion.div>
+            //    
+            // </AnimatePresence>
+
+
+            <div className={styles.main}>
+                <div className={styles.inpBlock}>
+                    <input
+                        type={type}
                         {...register(name, {
-                            required: `${name} is required !!!`,
+                            required: `${name} - обязательное поле !!!`,
                             pattern: {
                                 value: validatePattern,
                                 message: `введите корректный ${name}`
                             }
                         })}
-                    // as const
                     />
-                    {inputType === 'password' &&
-                        <div className={styles.main__eyeblock}>
-                            {!passwordVisible && <img src={eyeIcon} alt="eye" onClick={() => setPasswordVisible('text')} />}
-                            {passwordVisible && <img src={eyeIconSlach} alt="eyeSlash" onClick={() => setPasswordVisible('password')} />}
-                        </div>
-                    }
-                </motion.div>
-                {/* {errors?.name && <p>{errors.name.message}</p>} */}
-            </AnimatePresence>
+                </div>
+
+                <AnimatePresence>
+                    {errors[name] && (
+                        <motion.p
+                            className={styles.main__error}
+                            initial={{ height: 0, y: "-100", opacity: 0 }}
+                            animate={{ height: "auto", y: 0, opacity: 1 }}
+                            exit={{ height: 0, y: "-100", opacity: 0 }}
+                        >
+                            {errors[name].message}
+                        </motion.p>
+                    )}
+                </AnimatePresence>
+            </div>
         )
     }

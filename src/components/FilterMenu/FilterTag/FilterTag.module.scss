@@ -4,6 +4,7 @@
     border-radius: 8px;
     width: fit-content;
     overflow: hidden;
+    z-index: 100;
 }
 
 .liBlock {
@@ -11,4 +12,5 @@
     gap: 5px;
     align-items: center;
     justify-content: center;
+    z-index: 101;
 }
