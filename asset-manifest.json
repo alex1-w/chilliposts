@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/chilliposts/static/css/main.44830bb4.css",
-    "main.js": "/chilliposts/static/js/main.51ce3047.js",
+    "main.css": "/chilliposts/static/css/main.eddfe330.css",
+    "main.js": "/chilliposts/static/js/main.ca2904b3.js",
     "static/media/postImage.png": "/chilliposts/static/media/postImage.fbd8585eb64b6858742c.png",
     "index.html": "/chilliposts/index.html",
-    "main.44830bb4.css.map": "/chilliposts/static/css/main.44830bb4.css.map",
-    "main.51ce3047.js.map": "/chilliposts/static/js/main.51ce3047.js.map"
+    "main.eddfe330.css.map": "/chilliposts/static/css/main.eddfe330.css.map",
+    "main.ca2904b3.js.map": "/chilliposts/static/js/main.ca2904b3.js.map"
   },
   "entrypoints": [
-    "static/css/main.44830bb4.css",
-    "static/js/main.51ce3047.js"
+    "static/css/main.eddfe330.css",
+    "static/js/main.ca2904b3.js"
   ]
 }
