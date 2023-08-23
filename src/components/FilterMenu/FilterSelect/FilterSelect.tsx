@@ -18,31 +18,40 @@ const options: ITag[] = [
 
 export const FilterSelect = () => {
     const { categories, addCategories, deleteCategory } = useFilterProvider()
-
     const [isOpen, setIsOpen] = useState<boolean>(false)
-    const showSelect = () => setIsOpen(!isOpen)
+    const arrowRef = useRef<HTMLDivElement>(null)
 
-    function addCategoryTag(e: React.MouseEvent<HTMLElement>, option: ITag) {
-        // e.preventDefault()
-        e.stopPropagation()
-        const tagInValue = categories.find((tag: ITag) => tag.id === option.id)
-        if (tagInValue) return enqueueSnackbar('категория уже добавлена', { variant: 'error' })
-        addCategories(option)
-    }
-
-    function deleteTag(id: number) {
+    const deleteTag = (id: number) => {
+        if (categories.length === 1) setIsOpen(false)
         deleteCategory(id)
     }
 
+    const showSelect = () => {
+        arrowRef?.current?.classList.toggle(styles.rotate)
+        setIsOpen(!isOpen)
+    }
+
+    function addCategoryTag(e: React.MouseEvent<HTMLElement>, option: ITag) {
+        e.stopPropagation()
+
+        if (categories.length > 3) { return enqueueSnackbar("не больше 4х категорий", { variant: 'error' }) }
+
+        const tagInValue = categories.find((tag: ITag) => tag.id === option.id)
+        if (tagInValue) return enqueueSnackbar('категория уже добавлена', { variant: 'error' })
+
+        addCategories(option)
+    }
+
     return (
-
         <form className={styles.main} onClick={showSelect}>
-            <AnimatePresence>
 
-                <div className={styles.main__btnBlock}>
-                    <ul className={styles.tagsBlock}>
+            <div className={styles.main__btnBlock}>
+                <ul className={styles.tagsBlock}>
 
-                        {categories.map((tag: ITag) => (
+                    {!categories.length ?
+                        <div className={styles.tagsBlock__name}> <p>Категории</p></div>
+                        :
+                        categories.map((tag: ITag) => (
                             <FilterTag
                                 key={tag.id}
                                 id={tag.id}
@@ -50,32 +59,27 @@ export const FilterSelect = () => {
                                 deleteTag={(e) => deleteTag(tag.id)}
                             />
                         ))}
+                </ul>
 
-                    </ul>
-
-                    <p>Категория поста</p>
-
-                    <div className={styles.arrowDownIcon}>
-                        {arrowDownIcon}
-                    </div>
-
+                <div className={styles.arrowDownIcon} ref={arrowRef}>
+                    {arrowDownIcon}
                 </div>
+            </div>
 
-                <motion.div
-                    initial={{ height: 0, visibility: 'hidden' }}
-                    exit={{ height: 0, visibility: 'hidden' }}
-                    animate={isOpen ? { height: 'auto', visibility: 'visible' } : { height: 0, visibility: 'hidden' }}
-                    className={styles.selection}
-                >
+            <motion.div
+                initial={{ height: 0, visibility: 'hidden' }}
+                exit={{ height: 0, visibility: 'hidden' }}
+                animate={isOpen ? { height: 'auto', visibility: 'visible' } : { height: 0, visibility: 'hidden' }}
+                className={styles.selection}
+            >
 
-                    {options.map(option => (
-                        <li key={option.id} onClick={(e) => addCategoryTag(e, option)}>
-                            <p>{option.value}</p>
-                        </li>
-                    ))}
+                {options.map(option => (
+                    <li key={option.id} onClick={(e) => addCategoryTag(e, option)}>
+                        <p>{option.value}</p>
+                    </li>
+                ))}
 
-                </motion.div>
-            </AnimatePresence>
+            </motion.div>
         </form >
     )
 }

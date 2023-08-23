@@ -12,7 +12,6 @@ interface IOption {
 
 export const FilterMenu = () => {
 
-
     return (
         <div className={styles.main}>
             <h3>Фильтры</h3>

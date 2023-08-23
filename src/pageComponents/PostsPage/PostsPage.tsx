@@ -23,7 +23,9 @@ export const PostsPage = () => {
             <div className={styles.main} ref={ref}>
 
                 <motion.div whileHover={{ scale: 1.04 }} onClick={showFilter} className={styles.filterBtn}>
+
                     <p>фильтр</p>
+
                 </motion.div>
 
                 <div className={styles.wrapper}>

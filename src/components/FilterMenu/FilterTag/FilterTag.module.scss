@@ -9,8 +9,18 @@
 
 .liBlock {
     display: flex;
-    gap: 5px;
     align-items: center;
     justify-content: center;
-    z-index: 101;
+    gap: 5px;
+    z-index: 10;
+}
+
+@media screen and (max-width: 850px) {
+    .main {}
+
+    .liBlock {
+        p {
+            font-size: 12px;
+        }
+    }
 }

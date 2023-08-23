@@ -10,12 +10,6 @@ const root = ReactDOM.createRoot(
 );
 
 
-// guirggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
-
-// hashrouter
-
-// guirggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
-
 root.render(
   <React.StrictMode>
 

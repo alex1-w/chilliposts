@@ -6,33 +6,30 @@ import { PostsPage } from './pageComponents/PostsPage/PostsPage';
 import { DrawerProvider } from './components/Drawer/DrawerProvider';
 import { FilterProvider } from './components/FilterMenu/FilterProvider';
 import { SnackbarProvider } from 'notistack';
+import UserProvider from './providers/UserProvider';
+import RequireAuth from './providers/RequireAuth';
+import MainProvider from './providers/MainProvider';
 
 function App() {
   return (
+    <MainProvider>
+      <HashRouter basename='/'>
+        <Routes>
 
-    <SnackbarProvider>
-      <FilterProvider>
-        <DrawerProvider>
+          <Route path='/' element={<Layout />}>
 
-          <HashRouter basename='/'>
-            <Routes>
+            <Route index element={<LoginPage />} />
+            <Route path='/posts' element={
+              <RequireAuth>
+                <PostsPage />
+              </RequireAuth>}
+            />
 
-              <Route path='/' element={<Layout />}>
+          </Route>
 
-                <Route index element={<LoginPage />} />
-                <Route path='/posts' element={<PostsPage />} />
-                {/* <Route index element={<PostsPage />} /> */}
-
-              </Route>
-
-            </Routes>
-          </HashRouter>
-
-        </DrawerProvider>
-      </FilterProvider>
-    </SnackbarProvider>
-
+        </Routes>
+      </HashRouter>
+    </MainProvider>
   );
 }
-
-export default App;
+export default App
