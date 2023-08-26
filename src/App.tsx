@@ -13,7 +13,7 @@ import MainProvider from './providers/MainProvider';
 function App() {
   return (
     <MainProvider>
-      <HashRouter basename='/'>
+      <HashRouter>
         <Routes>
 
           <Route path='/' element={<Layout />}>
