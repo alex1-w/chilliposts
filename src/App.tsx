@@ -13,7 +13,7 @@ import MainProvider from './providers/MainProvider';
 function App() {
   return (
     <MainProvider>
-      <HashRouter>
+      {/* <HashRouter> */}
         <Routes>
 
           <Route path='/' element={<Layout />}>
@@ -28,7 +28,7 @@ function App() {
           </Route>
 
         </Routes>
-      </HashRouter>
+      {/* </HashRouter> */}
     </MainProvider>
   );
 }
