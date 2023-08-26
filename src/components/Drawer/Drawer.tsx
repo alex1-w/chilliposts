@@ -10,9 +10,10 @@ export const Drawer = () => {
     const { closeDrawer, isDrawerOpened, content } = useContext(DrawerContext)
     const backGroundRef = useRef<HTMLDivElement>(null)
     useOnClickOutside(backGroundRef, closeDrawer)
-
+    
     return (
         <AnimatePresence>
+            <></>
             {isDrawerOpened &&
                 <motion.article
                     className={styles.main}
@@ -32,6 +33,7 @@ export const Drawer = () => {
 
                         {content}
                     </div>
+
 
                 </motion.article>
             }
