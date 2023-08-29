@@ -10,31 +10,25 @@ export const Drawer = () => {
     const { closeDrawer, isDrawerOpened, content } = useContext(DrawerContext)
     const backGroundRef = useRef<HTMLDivElement>(null)
     useOnClickOutside(backGroundRef, closeDrawer)
-    
+
     return (
         <AnimatePresence>
-            <></>
             {isDrawerOpened &&
                 <motion.article
                     className={styles.main}
                     initial={{ x: '-1000px' }}
-                    animate={{ x: 0, }}
+                    animate={{ x: 0 }}
                     exit={{ x: '-1000px' }}
                     transition={{ type: "spring", stiffness: 80, bounce: 0, damping: 18, when: '700px' }}
                 >
                     <div className={styles.content}
                         ref={backGroundRef}
-
                     >
-
                         <div onClick={() => closeDrawer()} className={styles.cancelBtn}>
                             {cancelIcon}
                         </div>
-
                         {content}
                     </div>
-
-
                 </motion.article>
             }
         </AnimatePresence>

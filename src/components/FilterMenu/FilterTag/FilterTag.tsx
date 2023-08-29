@@ -19,6 +19,9 @@ export const FilterTag: FC<IFilterTag> = ({ value, deleteTag, id }) => {
 
     return (
 
+
+
+
         <motion.li
             onClick={(e) => { e.stopPropagation()}}
             initial={{ width: 0, opacity: 0 }}
@@ -36,6 +39,9 @@ export const FilterTag: FC<IFilterTag> = ({ value, deleteTag, id }) => {
 
             </div>
         </motion.li>
+
+
+
 
     )
 }

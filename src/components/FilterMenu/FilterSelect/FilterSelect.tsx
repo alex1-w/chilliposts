@@ -52,12 +52,20 @@ export const FilterSelect = () => {
                         <div className={styles.tagsBlock__name}> <p>Категории</p></div>
                         :
                         categories.map((tag: ITag) => (
-                            <FilterTag
-                                key={tag.id}
-                                id={tag.id}
-                                value={tag.value}
-                                deleteTag={(e) => deleteTag(tag.id)}
-                            />
+
+                            <AnimatePresence>
+
+
+                                <FilterTag
+                                    key={tag.id}
+                                    id={tag.id}
+                                    value={tag.value}
+                                    deleteTag={(e) => deleteTag(tag.id)}
+                                />
+
+
+                            </AnimatePresence>
+
                         ))}
                 </ul>
 
